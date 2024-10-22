@@ -1,0 +1,20 @@
+# This is a closure. The play_game function retains access to the coins and person variables from parent_func's scope.
+
+
+
+def nested_sum(lst):
+    def sum_helper(sub_lst):
+        total = 0
+        for element in sub_lst:
+            if isinstance(element, list):
+                # Recursive call for nested lists
+                total += sum_helper(element)
+            else:
+                total += element
+        return total
+    
+    return sum_helper(lst)
+
+# Example usage
+nested_list = [1, [2, [3, 4], 5], 6]
+print(nested_sum(nested_list))  # Output: 21
